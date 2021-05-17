@@ -1,0 +1,5 @@
+## POSboxless on Raspbian Buster 
+
+Script to get a POS-boxless setup for Odoo on Raspberry pi. The simplest thing to do is to setup an Odoo installation on Raspbian as one normally would on a server. Install the hw* modules - at the moment, I only have a need for the POS printer, so I have installed only hw_proxy and hw_escpos but there should not be any reason why the others wouldn't work. This set-up , though, is a bit too heavy for the Pi. Luckily, I found this [script](https://gist.github.com/dansanti/8ae97534f97c9b30c49e223c94aa39f9) though not much documentation for it. I have modified it so that it would work with Odoo 12 and I have tested it with a Pi3 and it seems to work well. 
+
+The setup works great though I did run into a strange problem with the locale settings. It is advisable to change the locale settings before installing postgresql since changing the setting after the database has been setup will throw an error. I was able to solve it with: ```localedef -f UTF-8 -i en_IN en_IN.UTF-8``` Reference: [Link](https://stackoverflow.com/questions/31636653/connect-to-postgresql-database-with-different-locale)
